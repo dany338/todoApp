@@ -8,11 +8,15 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "nanoid": "^2.0.3",
     "react": "16.8.6",
     "react-native": "0.60.4",
+    "react-native-securerandom": "^1.0.0-rc.0",
     "react-redux": "^7.1.0",
+    "react-router-native": "^5.0.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

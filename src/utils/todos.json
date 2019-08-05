@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "titulo": "Tarea 1",
+    "descripcion": "Descripción Tarea 1",
+    "tiempo_estimado": 1,
+    "tiempo_trabajado": 2
+  },
+  {
+    "id": 2,
+    "titulo": "Tarea 2",
+    "descripcion": "Descripción Tarea 2",
+    "tiempo_estimado": 2,
+    "tiempo_trabajado": 3
+  },
+  {
+    "id": 3,
+    "titulo": "Tarea 3",
+    "descripcion": "Descripción Tarea 3",
+    "tiempo_estimado": 3,
+    "tiempo_trabajado": 4
+  },
+  {
+    "id": 4,
+    "titulo": "Tarea 4",
+    "descripcion": "Descripción Tarea 4",
+    "tiempo_estimado": 2,
+    "tiempo_trabajado": 2
+  },
+  {
+    "id": 5,
+    "titulo": "Tarea 5",
+    "descripcion": "Descripción Tarea 5",
+    "tiempo_estimado": 3,
+    "tiempo_trabajado": 4
+  },
+  {
+    "id": 6,
+    "titulo": "Tarea 6",
+    "descripcion": "Descripción Tarea 6",
+    "tiempo_estimado": 2,
+    "tiempo_trabajado": 1
+  }
+]
