@@ -6,7 +6,7 @@ import {
   TouchableHighlight,
   TextInput
 } from "react-native";
-import { withRouter, } from "react-router-native";
+import { withRouter } from "react-router-native";
 import { connect } from "react-redux";
 import {
   todoFormChangeRequest,
@@ -17,7 +17,13 @@ import { format, url } from "nanoid";
 import { generateSecureRandom } from "react-native-securerandom";
 
 const Todo = props => {
-  const { todoFormChange, todoForm, createTodoSend, updateTodoSend } = props;
+  const {
+    todoFormChange,
+    todoForm,
+    createTodoSend,
+    updateTodoSend,
+    history
+  } = props;
   const {
     id,
     titulo,
@@ -31,6 +37,13 @@ const Todo = props => {
     const { name, value } = event.target;
     todoFormChange(name, value);
   };
+
+  const wait = () =>
+    new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, 3000);
+    });
 
   const handleSubmit = async () => {
     for (const name in todoForm) {
@@ -55,6 +68,8 @@ const Todo = props => {
       } else {
         updateTodoSend(todoForm);
       }
+      await wait();
+      history.push("/");
     }
   };
 

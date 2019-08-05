@@ -10,7 +10,8 @@ const Home = props => {
     setTodoSelectedSend,
     tasksItemsCount,
     loading,
-    error
+    error,
+    history
   } = props;
 
   const fatListItemSeparator = () => {
@@ -21,9 +22,18 @@ const Home = props => {
     );
   };
 
-  const handleTaskActive = (event, task) => {
+  const wait = () =>
+    new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, 3000);
+    });
+
+  const handleTaskActive = async task => {
     setTodoSelectedSend(task);
-    event.stopPropagation();
+    await wait();
+    history.push("/todo");
+    // event.stopPropagation();
   };
 
   return (
@@ -37,7 +47,7 @@ const Home = props => {
         renderItem={({ item }) => (
           <Text
             style={styles.SectionListItemStyle}
-            onPress={event => handleTaskActive(event, item)}
+            onPress={event => handleTaskActive(item)}
           >
             {item.titulo} - {item.descripcion}
             {item.tiempo_estimado} - {item.tiempo_trabajado}
