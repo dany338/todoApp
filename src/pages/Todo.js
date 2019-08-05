@@ -1,13 +1,23 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TouchableHighlight, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight,
+  TextInput
+} from "react-native";
 import { withRouter, } from "react-router-native";
 import { connect } from "react-redux";
-import { todoFormChangeRequest, createTodoRequest } from "../store";
+import {
+  todoFormChangeRequest,
+  createTodoRequest,
+  updateTodoRequest
+} from "../store";
 import { format, url } from "nanoid";
 import { generateSecureRandom } from "react-native-securerandom";
 
 const Todo = props => {
-  const { todoFormChange, todoForm, createTodoSend } = props;
+  const { todoFormChange, todoForm, createTodoSend, updateTodoSend } = props;
   const {
     id,
     titulo,
@@ -37,11 +47,13 @@ const Todo = props => {
 
     if (!errorField) {
       if (id === null) {
-        const generateSecureRandom = generateSecureRandom(12).then(
+        const generateSecureNumber = generateSecureRandom(12).then(
           randomBytes => randomBytes
         );
-        todoForm.id = await format(generateSecureRandom, url, 21);
+        todoForm.id = await format(generateSecureNumber, url, 21);
         createTodoSend(todoForm);
+      } else {
+        updateTodoSend(todoForm);
       }
     }
   };
@@ -50,11 +62,29 @@ const Todo = props => {
     <View style={styles.container}>
       <Text style={styles.header}>Page Todo Form</Text>
       <TextInput
+        name="titulo"
         style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
         onChange={handleChange}
         value={titulo}
       />
-
+      <TextInput
+        name="descripcion"
+        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+        onChange={handleChange}
+        value={descripcion}
+      />
+      <TextInput
+        name="tiempo_estimado"
+        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+        onChange={handleChange}
+        value={tiempo_estimado}
+      />
+      <TextInput
+        name="tiempo_trabajado"
+        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+        onChange={handleChange}
+        value={tiempo_trabajado}
+      />
       <TouchableHighlight style={styles.button} onPress={handleChange}>
         <Text> Guardar </Text>
       </TouchableHighlight>
@@ -88,7 +118,8 @@ const mapDispatchToProps = dispatch => {
   return {
     todoFormChange: (name, value) =>
       dispatch(todoFormChangeRequest(name, value)),
-    createTodoSend: todo => dispatch(createTodoRequest(todo))
+    createTodoSend: todo => dispatch(createTodoRequest(todo)),
+    updateTodoSend: todo => dispatch(updateTodoRequest(todo))
   };
 };
 

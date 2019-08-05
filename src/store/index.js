@@ -5,7 +5,9 @@ import todosReducer from "../reducers";
 import {
   getTodosRequest,
   todoFormChangeRequest,
-  createTodoRequest
+  createTodoRequest,
+  updateTodoRequest,
+  setTodoSelected
 } from "./dispatchers";
 
 // Concepto nuevo: Middleware
@@ -20,5 +22,7 @@ export {
   store as default,
   getTodosRequest,
   todoFormChangeRequest,
-  createTodoRequest
+  createTodoRequest,
+  updateTodoRequest,
+  setTodoSelected
 };

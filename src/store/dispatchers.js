@@ -35,3 +35,19 @@ export const createTodoRequest = todo => {
     }
   };
 };
+
+export const updateTodoRequest = todo => {
+  return dispatch => {
+    try {
+      dispatch(SerempreActions.fetchUpdateTodo(todo));
+    } catch (error) {
+      dispatch(SerempreActions.fetchUsersFailure(error.message));
+    }
+  };
+};
+
+export const setTodoSelected = todoSelected => {
+  return dispatch => {
+    dispatch(SerempreActions.fetchTodoSelected(todoSelected));
+  };
+};

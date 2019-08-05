@@ -60,7 +60,7 @@ const todosReducer = (state = INITIAL_STATE, action) => {
       };
     }
 
-    case "FETCH_PRODUCT_SELECTED": {
+    case "FETCH_TODO_SELECTED": {
       const { todoSelected } = action.payload;
 
       return {
