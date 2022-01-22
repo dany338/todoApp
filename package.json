@@ -8,7 +8,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "nanoid": "^2.0.3",
+    "nanoid": "^3.1.31",
     "react": "16.8.6",
     "react-native": "0.60.4",
     "react-native-securerandom": "^1.0.0-rc.0",
